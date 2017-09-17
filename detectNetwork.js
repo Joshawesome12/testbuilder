@@ -7,12 +7,24 @@
 //   1. The first few numbers (called the prefix)
 //   2. The number of digits in the number (called the length)
 
+// var detectNetwork = function(cardNumber) {
+//   // Note: `cardNumber` will always be a string
+//   // The Diner's Club network always starts with a 38 or 39 and is 14 digits long
+//   // The American Express network always starts with a 34 or 37 and is 15 digits long
+
+//   // Once you've read this, go ahead and try to implement this function, then return to the console.
+// };
+
 var detectNetwork = function(cardNumber) {
-  // Note: `cardNumber` will always be a string
-  // The Diner's Club network always starts with a 38 or 39 and is 14 digits long
-  // The American Express network always starts with a 34 or 37 and is 15 digits long
-
-  // Once you've read this, go ahead and try to implement this function, then return to the console.
-};
-
-
+  var cardNumSplit = cardNumber.split('')
+  var cardStart = cardNumSplit[0].concat(cardNumSplit[1]);
+  if (cardStart === '34' || '37' && cardNumSplit.length === 15){
+    return 'American Express';
+  }else if (cardStart === '39' || '39' && cardNumSplit.length === 14){
+    return 'Diner\'s Club';
+  }else if (cardStart === '51'||cardStart ==='52'||cardStart ==='53'||cardStart ==='54'||cardStart ==='55' && cardNumSplit.length === 16){
+    return 'MasterCard';
+  }else if (cardNumSplit[0] === '4' && cardNumSplit.length === 13 || cardNumSplit.length === 16 ||cardNumSplit.length === 19) {
+    return 'Visa';
+  }
+}
