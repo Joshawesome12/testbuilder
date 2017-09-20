@@ -90,7 +90,9 @@ var detectNetwork = function(cardNumber) {
   else if (first2 === '51'||first2 ==='52'||first2 ==='53'||first2 ==='54'||first2 ==='55' && cardNumSplit.length === 16){
     return 'MasterCard'; 
   }
-  if ((first4 === '4903' || first4 === '4905' || first4 === '4911' || first4 === '4936' || first6 === '633110' || first4 === '6333' || first4 === '6759') && (cardNumSplit.length === 16 || cardNumSplit.length === 18 || cardNumSplit.length === 19)){return 'Switch';}
+  if ((first4 === '4903' || first4 === '4905' || first4 === '4911' || first4 === '4936' || first6 === '633110' || first6 === '564182' || first4 === '6333' || first4 === '6759') && (cardNumSplit.length === 16 || cardNumSplit.length === 18 || cardNumSplit.length === 19)){
+      return 'Switch';
+  }
   else if (cardNumSplit[0] === '4' && (cardNumSplit.length === 13 || cardNumSplit.length === 16 ||cardNumSplit.length === 19)) {
     return 'Visa';
   }
